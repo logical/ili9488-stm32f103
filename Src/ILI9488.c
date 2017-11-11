@@ -54,20 +54,25 @@ void ILI9488WriteReg(uint16_t data) {
 
 }
 
+void ILI9488Write8bit(uint8_t data) {
+
+
+  WRITE_LCD(data);
+  HAL_GPIO_WritePin(GPIOB, GPIO_WR,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_WR,GPIO_PIN_SET);
+
+
+
+}
 void ILI9488WriteData(uint16_t data) {
 
 
-  WRITE_LCD(data&0xff);
-  HAL_GPIO_WritePin(GPIOB, GPIO_WR,GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(GPIOB, GPIO_WR,GPIO_PIN_SET);
-	if(data>255){
   WRITE_LCD(data>>8);
   HAL_GPIO_WritePin(GPIOB, GPIO_WR,GPIO_PIN_RESET);
   HAL_GPIO_WritePin(GPIOB, GPIO_WR,GPIO_PIN_SET);
-
-	}
-
-
+  WRITE_LCD(data&0xff);
+  HAL_GPIO_WritePin(GPIOB, GPIO_WR,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_WR,GPIO_PIN_SET);
 
 }
 

@@ -27,6 +27,7 @@ void ILI9488_Initial_Code(void);
 void ILI9488MemoryRead(unsigned short * pData, unsigned short size);
 void ILI9488WriteReg(uint16_t data) ;
 void ILI9488WriteData(uint16_t data) ;
+void ILI9488Write8bit(uint8_t data);
 uint16_t ILI9488ReadData(void) ;
 
 #endif

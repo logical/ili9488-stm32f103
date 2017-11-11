@@ -36,12 +36,20 @@ static GFXINLINE void acquire_bus(GDisplay *g) {
 static GFXINLINE void release_bus(GDisplay *g) {
 	(void) g;
 }
+ 
 
 static GFXINLINE void write_index(GDisplay *g, uint16_t index) {
 	(void) g;
 	(void) index;
 	ILI9488WriteReg(index);
 }
+
+static GFXINLINE void write_data8(GDisplay *g, uint16_t data) {
+	(void) g;
+	(void) data;
+	ILI9488Write8bit(data);
+}
+
 
 static GFXINLINE void write_data(GDisplay *g, uint16_t data) {
 	(void) g;

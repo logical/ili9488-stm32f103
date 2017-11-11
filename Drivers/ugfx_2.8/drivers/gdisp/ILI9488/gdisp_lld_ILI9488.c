@@ -53,16 +53,16 @@ static void dummy_read(GDisplay* g) {
 
 static void set_viewport(GDisplay* g) {
   write_index(g, 0x2A);
-  write_data(g, ((g->p.x >> 8) & 0x00FF));
-  write_data(g, ((g->p.x >> 0) & 0x00FF));
-  write_data(g, ((g->p.x + g->p.cx - 1) >> 8) & 0x00FF);
-  write_data(g, ((g->p.x + g->p.cx - 1) >> 0) & 0x00FF);
+  write_data8(g, ((g->p.x >> 8) & 0x00FF));
+  write_data8(g, ((g->p.x >> 0) & 0x00FF));
+  write_data8(g, ((g->p.x + g->p.cx - 1) >> 8) & 0x00FF);
+  write_data8(g, ((g->p.x + g->p.cx - 1) >> 0) & 0x00FF);
 
   write_index(g, 0x2B);
-  write_data(g, ((g->p.y >> 8) & 0x00FF));
-  write_data(g, ((g->p.y >> 0) & 0x00FF));
-  write_data(g, ((g->p.y + g->p.cy - 1) >> 8) & 0x00FF);
-  write_data(g, ((g->p.y + g->p.cy - 1) >> 0) & 0x00FF);
+  write_data8(g, ((g->p.y >> 8) & 0x00FF));
+  write_data8(g, ((g->p.y >> 0) & 0x00FF));
+  write_data8(g, ((g->p.y + g->p.cy - 1) >> 8) & 0x00FF);
+  write_data8(g, ((g->p.y + g->p.cy - 1) >> 0) & 0x00FF);
 
 	write_index(g, 0x2C);
 }
@@ -94,87 +94,87 @@ LLDSPEC bool_t gdisp_lld_init(GDisplay *g) {
 	acquire_bus(g);
 
 	write_index(g, 0xF7);
-	write_data(g, 0xA9);
-	write_data(g, 0x51);
-	write_data(g, 0x2C);
-	write_data(g, 0x82);
+	write_data8(g, 0xA9);
+	write_data8(g, 0x51);
+	write_data8(g, 0x2C);
+	write_data8(g, 0x82);
 
 	write_index(g, 0xC0);
-	write_data(g, 0x11);
-	write_data(g, 0x09);
+	write_data8(g, 0x11);
+	write_data8(g, 0x09);
 
 	write_index(g, 0xC1);
-	write_data(g, 0x41);
+	write_data8(g, 0x41);
 
 	write_index(g, 0xC5);
-	write_data(g, 0x00);
-	write_data(g, 0x2A);
-	write_data(g, 0x80);
+	write_data8(g, 0x00);
+	write_data8(g, 0x2A);
+	write_data8(g, 0x80);
 
 	write_index(g,0XB0);      // Interface Mode Control
-	write_data(g,0x00);     			 //SDO NOT USE
+	write_data8(g,0x00);     			 //SDO NOT USE
 
 	write_index(g, 0xB1);
-	write_data(g, 0xB0);
+	write_data8(g, 0xB0);
 //	write_data(g, 0x11);
 
 	write_index(g, 0xB4);
-	write_data(g, 0x02);
+	write_data8(g, 0x02);
 
 	write_index(g, 0xB6);
-	write_data(g, 0x02);
-	write_data(g, 0x22);
-	write_data(g, 0x3B);
+	write_data8(g, 0x02);
+	write_data8(g, 0x22);
+	write_data8(g, 0x3B);
 
 	write_index(g, 0xB7);
-	write_data(g, 0xC6);
+	write_data8(g, 0xC6);
 
 	write_index(g, 0xBE);
-	write_data(g, 0x00);
-	write_data(g, 0x04);
+	write_data8(g, 0x00);
+	write_data8(g, 0x04);
 
 	write_index(g, 0xE9);
-	write_data(g, 0x00);
+	write_data8(g, 0x00);
 
 	write_index(g, 0x36);
-	write_data(g, 0x08);
+	write_data8(g, 0x08);
 
 	write_index(g, 0x3A);
-	write_data(g, 0x55);
+	write_data8(g, 0x55);
 
 	write_index(g, 0xE0);
-	write_data(g, 0x00);
-	write_data(g, 0x07);
-	write_data(g, 0x12);
-	write_data(g, 0x0B);
-	write_data(g, 0x18);
-	write_data(g, 0x0B);
-	write_data(g, 0x3F);
-	write_data(g, 0x9B);
-	write_data(g, 0x4B);
-	write_data(g, 0x0B);
-	write_data(g, 0x0F);
-	write_data(g, 0x0B);
-	write_data(g, 0x15);
-	write_data(g, 0x17);
-	write_data(g, 0x0F);
+	write_data8(g, 0x00);
+	write_data8(g, 0x07);
+	write_data8(g, 0x12);
+	write_data8(g, 0x0B);
+	write_data8(g, 0x18);
+	write_data8(g, 0x0B);
+	write_data8(g, 0x3F);
+	write_data8(g, 0x9B);
+	write_data8(g, 0x4B);
+	write_data8(g, 0x0B);
+	write_data8(g, 0x0F);
+	write_data8(g, 0x0B);
+	write_data8(g, 0x15);
+	write_data8(g, 0x17);
+	write_data8(g, 0x0F);
 
 	write_index(g, 0xE1);
-	write_data(g, 0x00);
-	write_data(g, 0x16);
-	write_data(g, 0x1B);
-	write_data(g, 0x02);
-	write_data(g, 0x0F);
-	write_data(g, 0x06);
-	write_data(g, 0x34);
-	write_data(g, 0x46);
-	write_data(g, 0x48);
-	write_data(g, 0x04);
-	write_data(g, 0x0D);
-	write_data(g, 0x0D);
-	write_data(g, 0x35);
-	write_data(g, 0x36);
-	write_data(g, 0x0F);
+	write_data8(g, 0x00);
+	write_data8(g, 0x16);
+	write_data8(g, 0x1B);
+	write_data8(g, 0x02);
+	write_data8(g, 0x0F);
+	write_data8(g, 0x06);
+	write_data8(g, 0x34);
+	write_data8(g, 0x46);
+	write_data8(g, 0x48);
+	write_data8(g, 0x04);
+	write_data8(g, 0x0D);
+	write_data8(g, 0x0D);
+	write_data8(g, 0x35);
+	write_data8(g, 0x36);
+	write_data8(g, 0x0F);
 
 	write_index(g, 0x11);
 	gfxSleepMilliseconds(120);
@@ -286,7 +286,7 @@ LLDSPEC bool_t gdisp_lld_init(GDisplay *g) {
 				acquire_bus(g);
 
 			  write_index(g, 0x36);
-			  write_data(g, 0x08);
+			  write_data8(g, 0x08);
 
 				release_bus(g);
 				g->g.Height = GDISP_SCREEN_HEIGHT;
@@ -297,7 +297,7 @@ LLDSPEC bool_t gdisp_lld_init(GDisplay *g) {
 				acquire_bus(g);
 
         write_index(g, 0x36);
-        write_data(g, 0x68);
+        write_data8(g, 0x68);
 
 				release_bus(g);
 				g->g.Height = GDISP_SCREEN_WIDTH;
@@ -308,7 +308,7 @@ LLDSPEC bool_t gdisp_lld_init(GDisplay *g) {
 				acquire_bus(g);
 
 			  write_index(g, 0x36);
-			  write_data(g, 0xC8);
+			  write_data8(g, 0xC8);
 
 				release_bus(g);
 				g->g.Height = GDISP_SCREEN_HEIGHT;
@@ -319,7 +319,7 @@ LLDSPEC bool_t gdisp_lld_init(GDisplay *g) {
 				acquire_bus(g);
 
         write_index(g, 0x36);
-        write_data(g, 0xA8);
+        write_data8(g, 0xA8);
 
 				release_bus(g);
 				g->g.Height = GDISP_SCREEN_WIDTH;

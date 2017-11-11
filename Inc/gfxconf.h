@@ -53,7 +53,7 @@
     #define GFX_CPU                                  GFX_CPU_CORTEX_M3
 //    #define GFX_CPU_NO_ALIGNMENT_FAULTS              FALSE
 //    #define GFX_CPU_ENDIAN                           GFX_CPU_ENDIAN_UNKNOWN
-    #define GFX_OS_HEAP_SIZE                         10240
+    #define GFX_OS_HEAP_SIZE                         5120
 //    #define GFX_OS_NO_INIT                           FALSE
     #define GFX_OS_INIT_NO_WARNING                   TRUE
     #define GFX_OS_PRE_INIT_FUNCTION                 raw32Init
