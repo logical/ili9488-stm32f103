@@ -38,10 +38,10 @@
 
 /* Includes ------------------------------------------------------------------*/
 
-//#include "gfx.h"
+#include "gfx.h"
 #include "ILI9488.h"
 #include "main.h"
-#include "gdisp.h"
+//#include "gdisp.h"
 //#include "LCDConf.h"
 
 #include "stm32f1xx_hal.h"
